@@ -1,145 +1,515 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apexonix | Offshore Digital Agency</title>
-    <style>
-        /* Base Setup with Custom Color Palette */
-        body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            background-color: #FFFFF2; /* Modern Ghiurang Background */
-            color: #0D1F13; /* Deep Forest Typography */
-            margin: 0; 
-            padding: 0; 
-        }
-        header { 
-            background-color: #FFFFF2; 
-            padding: 60px 20px 30px 20px; 
-            text-align: center; 
-        }
-        h1 { 
-            font-size: 3.5rem; 
-            margin: 0; 
-            letter-spacing: 3px;
-            font-weight: 900;
-            color: #279B48; /* Agency Green for Brand Name */
-        }
-        .tagline { 
-            font-size: 1.3rem; 
-            color: #0D1F13; 
-            margin-top: 10px; 
-            font-weight: 600;
-            letter-spacing: 1px;
-            opacity: 0.85;
-        }
-        .main-content { 
-            max-width: 800px; 
-            margin: 0 auto 60px auto; 
-            padding: 40px; 
-            background: #E8E8E1; /* Soft Silver Content Card */
-            border-radius: 12px; 
-        }
-        h2 { 
-            color: #0D1F13; /* Deep Forest Headers */
-            border-bottom: 2px solid #279B48; /* Agency Green Divider Accents */
-            padding-bottom: 10px; 
-            font-size: 1.6rem;
-            margin-top: 30px;
-        }
-        p {
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-        .services { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 20px; 
-            margin-top: 20px; 
-        }
-        .service-box { 
-            background: #FFFFF2; /* Modern Ghiurang inner cards */
-            padding: 25px; 
-            border-radius: 6px; 
-            border-left: 5px solid #279B48; /* Agency Green Accent Line */
-        }
-        .service-box h3 {
-            margin-top: 0;
-            color: #0D1F13;
-            font-size: 1.25rem;
-        }
-        .global-badge {
-            display: inline-block;
-            background-color: #FFFFF2; /* Modern Ghiurang for badges */
-            color: #0D1F13;
-            padding: 6px 16px;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            margin: 6px;
-            font-weight: 600;
-            border: 1px solid #0D1F13;
-        }
-        .contact-container {
-            text-align: center;
-            margin-top: 40px;
-        }
-        .contact-btn { 
-            display: inline-block; 
-            background-color: #FF3131; /* Action Red Primary Button */
-            color: #FFFFFF; /* Pure White Text */
-            padding: 16px 40px; 
-            text-decoration: none; 
-            border-radius: 6px; 
-            font-weight: bold; 
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 14px rgba(255, 49, 49, 0.3);
-            transition: transform 0.2s ease;
-        }
-        .contact-btn:hover { 
-            transform: translateY(-2px);
-        }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Apexonix — Digital Agency</title>
+<link rel="icon" href="https://raw.githubusercontent.com/apexonixdigital/apexonix-website/main/Favicon.png" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --cream:#FFFFF2;
+  --forest:#0D1F13;
+  --red:#FF3131;
+  --green:#279B48;
+  --silver:#E8E8E1;
+  --white:#FFFFFF;
+  --f:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--forest);font-family:var(--f);overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease;}
+.reveal-left.visible{opacity:1;transform:none;}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease;}
+.reveal-right.visible{opacity:1;transform:none;}
+.stagger > *{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.stagger.visible > *:nth-child(1){opacity:1;transform:none;transition-delay:.05s;}
+.stagger.visible > *:nth-child(2){opacity:1;transform:none;transition-delay:.15s;}
+.stagger.visible > *:nth-child(3){opacity:1;transform:none;transition-delay:.25s;}
+.stagger.visible > *:nth-child(4){opacity:1;transform:none;transition-delay:.35s;}
+.stagger.visible > *:nth-child(5){opacity:1;transform:none;transition-delay:.45s;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 6%;transition:background .3s,box-shadow .3s;}
+nav.scrolled{background:rgba(255,255,242,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(13,31,19,.07);}
+.nav-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-img{width:40px;height:40px;border-radius:8px;background:var(--silver);border:1.5px dashed var(--green);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--green);font-weight:700;text-align:center;line-height:1.3;}
+.logo-name{font-size:21px;font-weight:800;letter-spacing:-.5px;}
+.logo-name span{color:var(--green);}
+.nav-links{display:flex;align-items:center;gap:30px;}
+.nav-links a{font-size:14px;font-weight:500;opacity:.65;transition:opacity .2s;}
+.nav-links a:hover{opacity:1;}
+.nav-cta{background:var(--red);color:var(--white)!important;opacity:1!important;padding:9px 22px;border-radius:6px;font-weight:600!important;transition:transform .15s,opacity .15s!important;}
+.nav-cta:hover{transform:translateY(-1px);opacity:.9!important;}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.burger span{width:22px;height:2px;background:var(--forest);border-radius:2px;transition:all .3s;}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--cream);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-size:22px;font-weight:600;}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:0 6%;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(39,155,72,.07) 0%,transparent 70%);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:380px;height:380px;background:radial-gradient(circle,rgba(255,49,49,.05) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{max-width:1160px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(39,155,72,.3);border-radius:30px;padding:6px 16px;font-size:12px;font-weight:600;letter-spacing:.5px;margin-bottom:28px;color:var(--green);}
+.pulse{width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.3;transform:scale(.8);}}
+.hero h1{font-size:58px;font-weight:900;line-height:1.04;letter-spacing:-2px;margin-bottom:22px;}
+.hero h1 em{font-style:normal;color:var(--green);}
+.hero p{font-size:18px;line-height:1.7;opacity:.65;max-width:460px;margin-bottom:40px;}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-red{background:var(--red);color:var(--white);padding:14px 30px;border-radius:7px;font-size:15px;font-weight:700;transition:transform .15s,box-shadow .15s;display:inline-block;}
+.btn-red:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,49,49,.25);}
+.btn-outline{border:1.5px solid rgba(13,31,19,.25);color:var(--forest);padding:14px 30px;border-radius:7px;font-size:15px;font-weight:600;transition:border-color .2s,background .2s;display:inline-block;}
+.btn-outline:hover{border-color:var(--forest);background:rgba(13,31,19,.04);}
+.hero-visual{position:relative;}
+.floating-card{background:var(--white);border:1px solid rgba(13,31,19,.08);border-radius:16px;padding:28px;animation:float 5s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.fc-head{display:flex;align-items:center;gap:12px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--silver);}
+.fc-dot{width:10px;height:10px;border-radius:50%;}
+.kpi-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:18px;}
+.kpi{background:var(--cream);border-radius:10px;padding:14px 10px;text-align:center;}
+.kpi-n{font-size:24px;font-weight:800;color:var(--green);}
+.kpi-l{font-size:11px;opacity:.55;margin-top:2px;font-weight:500;}
+.badge-row{display:flex;flex-wrap:wrap;gap:7px;}
+.badge{background:var(--cream);border:1px solid rgba(39,155,72,.2);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600;}
+
+/* ── SECTION SHELL ── */
+.sec{padding:100px 6%;}
+.sec-inner{max-width:1160px;margin:0 auto;}
+.sec-tag{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-bottom:12px;}
+.sec-h{font-size:42px;font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:16px;}
+.sec-p{font-size:17px;opacity:.62;line-height:1.65;max-width:540px;}
+.divider{width:48px;height:3px;background:var(--green);border-radius:2px;margin:18px 0 48px;}
+
+/* ── SERVICES ── */
+.services{background:var(--forest);}
+.services .sec-tag{color:#6EE58A;}
+.services .sec-h{color:var(--white);}
+.services .sec-p{color:rgba(255,255,242,.6);}
+.services .divider{background:var(--green);}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:rgba(255,255,242,.06);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,242,.06);}
+.svc-card{background:var(--forest);padding:36px 30px;transition:background .25s;position:relative;overflow:hidden;}
+.svc-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green);transform:scaleY(0);transform-origin:bottom;transition:transform .35s ease;}
+.svc-card:hover{background:#112318;}
+.svc-card:hover::before{transform:scaleY(1);}
+.svc-ico{width:46px;height:46px;border-radius:10px;background:rgba(39,155,72,.12);display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.svc-ico svg{width:22px;height:22px;stroke:#6EE58A;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.svc-title{font-size:17px;font-weight:700;color:var(--white);margin-bottom:10px;}
+.svc-desc{font-size:13.5px;color:rgba(255,255,242,.55);line-height:1.65;}
+
+/* ── WHY US ── */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;margin-top:0;}
+.why-card{border:1px solid rgba(13,31,19,.07);border-radius:14px;padding:28px 24px;transition:border-color .25s,transform .25s;}
+.why-card:hover{border-color:var(--green);transform:translateY(-3px);}
+.why-n{font-size:13px;font-weight:700;color:var(--green);letter-spacing:1px;margin-bottom:10px;}
+.why-t{font-size:16px;font-weight:700;margin-bottom:8px;}
+.why-d{font-size:13.5px;opacity:.6;line-height:1.6;}
+
+/* ── MARKETS ── */
+.markets{background:var(--silver);}
+.mkt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.mkt-card{background:var(--cream);border-radius:14px;padding:30px 24px;text-align:center;border:1px solid rgba(13,31,19,.06);transition:border-color .25s,transform .25s;}
+.mkt-card:hover{border-color:var(--green);transform:translateY(-3px);}
+.mkt-flag{font-size:40px;margin-bottom:14px;}
+.mkt-name{font-size:17px;font-weight:700;margin-bottom:6px;}
+.mkt-desc{font-size:13px;opacity:.58;line-height:1.55;}
+
+/* ── STATS BAND ── */
+.band{background:var(--green);padding:60px 6%;}
+.band-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.band-item{text-align:center;}
+.band-n{font-size:46px;font-weight:900;color:var(--white);line-height:1;}
+.band-l{font-size:13px;color:rgba(255,255,255,.78);margin-top:6px;font-weight:500;}
+
+/* ── SOCIAL ── */
+.social-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:48px;}
+.soc-btn{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid rgba(13,31,19,.08);border-radius:10px;padding:12px 20px;font-size:14px;font-weight:600;transition:border-color .2s,transform .2s,box-shadow .2s;}
+.soc-btn:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 6px 18px rgba(39,155,72,.1);}
+.soc-ico{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* ── CONTACT ── */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.contact-info h2{font-size:40px;font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:18px;}
+.contact-info p{font-size:16px;opacity:.62;line-height:1.7;margin-bottom:32px;}
+.contact-detail{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:14px;font-weight:500;}
+.contact-detail svg{width:18px;height:18px;stroke:var(--green);fill:none;stroke-width:2;flex-shrink:0;}
+.quick-contact{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;}
+.qc-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;transition:opacity .2s,transform .15s;}
+.qc-btn:hover{opacity:.9;transform:translateY(-1px);}
+.form-card{background:var(--white);border:1px solid rgba(13,31,19,.08);border-radius:18px;padding:36px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;opacity:.55;margin-bottom:7px;}
+.field input,.field textarea,.field select{width:100%;background:var(--cream);border:1.5px solid rgba(13,31,19,.1);border-radius:8px;padding:12px 14px;font-size:14px;font-family:var(--f);color:var(--forest);transition:border-color .2s,box-shadow .2s;outline:none;resize:none;}
+.field input:focus,.field textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(39,155,72,.1);}
+.field textarea{height:120px;}
+.submit-btn{width:100%;background:var(--red);color:var(--white);border:none;padding:14px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:var(--f);}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,49,49,.25);}
+.form-success{display:none;text-align:center;padding:20px 0;}
+.form-success .check{width:52px;height:52px;background:rgba(39,155,72,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+.form-success .check svg{width:26px;height:26px;stroke:var(--green);fill:none;stroke-width:2.5;}
+
+/* ── FOOTER ── */
+footer{background:#07100A;padding:40px 6%;}
+.foot-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.foot-copy{font-size:13px;color:rgba(255,255,242,.35);}
+.foot-links{display:flex;gap:24px;}
+.foot-links a{font-size:13px;color:rgba(255,255,242,.35);transition:color .2s;}
+.foot-links a:hover{color:rgba(255,255,242,.8);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner,.contact-wrap{grid-template-columns:1fr;}
+  .hero-visual{display:none;}
+  .hero h1{font-size:42px;}
+  .band-inner{grid-template-columns:1fr 1fr;}
+  .form-row{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .hero h1{font-size:34px;letter-spacing:-1px;}
+  .sec-h{font-size:30px;}
+  .band-n{font-size:34px;}
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>APEXONIX</h1>
-        <p class="tagline">ELEVATE YOUR REACH</p>
-    </header>
-
-    <div class="main-content">
-        <h2>Global Digital Services</h2>
-        <p>Apexonix is a premier offshore digital agency providing qualitative web, branding, and marketing solutions to international clients. We deliver world-class results with exceptional, high-standard execution at highly competitive rates.</p>
-        
-        <h2>Target Markets We Serve</h2>
-        <p>We proudly deliver top-tier, reliable digital operations tailored for businesses across:</p>
-        <div style="margin-bottom: 20px; padding: 10px 0;">
-            <span class="global-badge">🇺🇸 United States</span>
-            <span class="global-badge">🇬🇧 United Kingdom</span>
-            <span class="global-badge">🇦🇺 Australia</span>
-            <span class="global-badge">🇦🇪 United Arab Emirates</span>
-        </div>
-
-        <h2>Core Expertise</h2>
-        <div class="services">
-            <div class="service-box">
-                <h3>Digital Marketing</h3>
-                <p>Strategic, results-driven global campaigns designed to expand your digital footprint and acquire customers.</p>
-            </div>
-            <div class="service-box">
-                <h3>Branding & Design</h3>
-                <p>Crafting polished visual identities, professional brand assets, and modern online configurations.</p>
-            </div>
-        </div>
-
-        <h2>Let's Work Together</h2>
-        <p>Ready to scale your business with premium offshore digital talent? Get in touch with our team today.</p>
-        
-        <div class="contact-container">
-            <a href="mailto:info@apexonix.com" class="contact-btn">Contact Our Agency</a>
-        </div>
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/apexonixdigital/apexonix-website/main/logo.png" alt="Apexonix" style="height:42px;width:auto;display:block;"/>
     </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#markets">Markets</a>
+      <a href="#contact" class="nav-cta">Get Started</a>
+    </div>
+    <div class="burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#why" onclick="toggleMenu()">Why Us</a>
+  <a href="#markets" onclick="toggleMenu()">Markets</a>
+  <a href="#social" onclick="toggleMenu()">Connect</a>
+  <a href="#contact" onclick="toggleMenu()" style="color:var(--red);font-weight:700;">Get Started →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-pill reveal"><span class="pulse"></span>Digital Agency · Global Reach</div>
+      <h1 class="reveal">We Grow <em>Brands</em> That Mean Business</h1>
+      <p class="reveal">Apexonix delivers digital marketing, branding, content, and offshore services to companies across the US, UK, Australia, and UAE.</p>
+      <div class="btn-row reveal">
+        <a href="#contact" class="btn-red">Contact Our Agency</a>
+        <a href="#services" class="btn-outline">Explore Services</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal-right">
+      <div class="floating-card">
+        <div class="fc-head">
+          <div class="fc-dot" style="background:var(--red);"></div>
+          <div class="fc-dot" style="background:#F5A623;margin-left:4px;"></div>
+          <div class="fc-dot" style="background:var(--green);margin-left:4px;"></div>
+          <span style="font-size:13px;font-weight:600;margin-left:10px;opacity:.5;">Campaign Dashboard</span>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi"><div class="kpi-n">200+</div><div class="kpi-l">Clients</div></div>
+          <div class="kpi"><div class="kpi-n">98%</div><div class="kpi-l">Retention</div></div>
+          <div class="kpi"><div class="kpi-n">4</div><div class="kpi-l">Markets</div></div>
+        </div>
+        <div class="badge-row">
+          <div class="badge">🇺🇸 USA</div>
+          <div class="badge">🇬🇧 UK</div>
+          <div class="badge">🇦🇺 Australia</div>
+          <div class="badge">🇦🇪 UAE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec services" id="services">
+  <div class="sec-inner">
+    <div class="sec-tag reveal">What We Do</div>
+    <h2 class="sec-h reveal">Services Built to Scale</h2>
+    <p class="sec-p reveal">From strategy to execution — measurable results across every digital channel.</p>
+    <div class="divider reveal"></div>
+    <div class="svc-grid stagger">
+      <div class="svc-card">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="svc-title">Digital Marketing</div>
+        <div class="svc-desc">ROI-driven SEO, PPC, email, and performance media campaigns that make your budget work harder.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <div class="svc-title">Branding</div>
+        <div class="svc-desc">Visual identity, strategy, tone of voice, and design systems that make you the obvious choice.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="svc-title">Social Media Management</div>
+        <div class="svc-desc">Strategy, scheduling, community management, and growth across all major platforms.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="svc-title">Content Creation</div>
+        <div class="svc-desc">Written, visual, and video content that builds authority, educates your audience, and drives traffic.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="svc-title">Offshore Digital Services</div>
+        <div class="svc-desc">Dedicated digital teams for US, UK, Australian &amp; UAE businesses. Same quality, better economics.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec" id="why">
+  <div class="sec-inner">
+    <div class="sec-tag reveal">Why Apexonix</div>
+    <h2 class="sec-h reveal">Results-Driven, Not Just Creative</h2>
+    <p class="sec-p reveal">Strategic thinking, creative excellence, and data intelligence — combined to deliver outcomes that matter.</p>
+    <div class="divider reveal"></div>
+    <div class="why-grid stagger">
+      <div class="why-card">
+        <div class="why-n">01</div>
+        <div class="why-t">Global Expertise</div>
+        <div class="why-d">Deep understanding of US, UK, Australian &amp; UAE market dynamics and consumer behaviour.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-n">02</div>
+        <div class="why-t">Full-Service Team</div>
+        <div class="why-d">Strategists, designers, writers, media buyers — one agency, zero outsourcing headaches.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-n">03</div>
+        <div class="why-t">Data-Led Decisions</div>
+        <div class="why-d">Every strategy backed by real analytics, competitive research, and performance benchmarks.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-n">04</div>
+        <div class="why-t">Transparent Reporting</div>
+        <div class="why-d">Clear, honest metrics that reflect your actual business goals — not vanity numbers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETS -->
+<section class="sec markets" id="markets">
+  <div class="sec-inner">
+    <div class="sec-tag reveal">Where We Work</div>
+    <h2 class="sec-h reveal">Built for Global Brands</h2>
+    <p class="sec-p reveal">Local market insight. Global standards of execution.</p>
+    <div class="divider reveal"></div>
+    <div class="mkt-grid stagger">
+      <div class="mkt-card">
+        <div class="mkt-flag">🇺🇸</div>
+        <div class="mkt-name">United States</div>
+        <div class="mkt-desc">Competitive landscape, high-value audiences, and massive digital ad spend.</div>
+      </div>
+      <div class="mkt-card">
+        <div class="mkt-flag">🇬🇧</div>
+        <div class="mkt-name">United Kingdom</div>
+        <div class="mkt-desc">Sophisticated consumers, strong digital adoption, premium market positioning.</div>
+      </div>
+      <div class="mkt-card">
+        <div class="mkt-flag">🇦🇺</div>
+        <div class="mkt-name">Australia</div>
+        <div class="mkt-desc">Fast-growing digital economy with strong social media engagement rates.</div>
+      </div>
+      <div class="mkt-card">
+        <div class="mkt-flag">🇦🇪</div>
+        <div class="mkt-name">UAE</div>
+        <div class="mkt-desc">One of the highest social media penetration rates in the world — a brand's dream market.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="band">
+  <div class="band-inner stagger">
+    <div class="band-item"><div class="band-n">200+</div><div class="band-l">Global Clients</div></div>
+    <div class="band-item"><div class="band-n">4</div><div class="band-l">Markets Served</div></div>
+    <div class="band-item"><div class="band-n">98%</div><div class="band-l">Client Retention</div></div>
+    <div class="band-item"><div class="band-n">5★</div><div class="band-l">Average Rating</div></div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<section class="sec" id="social" style="text-align:center;">
+  <div class="sec-inner">
+    <div class="sec-tag reveal">Follow Us</div>
+    <h2 class="sec-h reveal" style="max-width:500px;margin:0 auto 12px;">Stay Connected With Apexonix</h2>
+    <p class="sec-p reveal" style="margin:0 auto;">Join our growing community across all platforms.</p>
+    <div class="social-grid stagger">
+      <a href="https://www.facebook.com/apexonix" target="_blank" class="soc-btn">
+        <div class="soc-ico" style="background:#1877F2;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+        Facebook
+      </a>
+      <a href="https://www.instagram.com/apexonix.co/" target="_blank" class="soc-btn">
+        <div class="soc-ico" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></div>
+        Instagram
+      </a>
+      <a href="https://x.com/Apexonixdigital" target="_blank" class="soc-btn">
+        <div class="soc-ico" style="background:#000;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+        X (Twitter)
+      </a>
+      <a href="https://linkedin.com/company/apexonix" target="_blank" class="soc-btn">
+        <div class="soc-ico" style="background:#0A66C2;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        LinkedIn
+      </a>
+      <a href="https://www.tiktok.com/@apexonix" target="_blank" class="soc-btn">
+        <div class="soc-ico" style="background:#000;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.72a4.85 4.85 0 0 1-1.01-.03z"/></svg></div>
+        TikTok
+      </a>
+      <a href="https://www.pinterest.com/apexonix/" target="_blank" class="soc-btn">
+        <div class="soc-ico" style="background:#E60023;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></div>
+        Pinterest
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact" style="background:var(--silver);">
+  <div class="sec-inner">
+    <div class="contact-wrap">
+      <div class="contact-info reveal-left">
+        <div class="sec-tag">Get In Touch</div>
+        <h2>Let's Build Something Great Together</h2>
+        <div class="divider"></div>
+        <p>Tell us about your brand and goals. We'll get back to you within 24 hours with a tailored plan.</p>
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          2026apexonix@gmail.com
+        </div>
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +977 9841092416
+        </div>
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Dhunibesi-06, Chalise, Dhading, Nepal
+        </div>
+        <div class="quick-contact">
+          <a href="https://wa.me/9779841092416" target="_blank" class="qc-btn" style="background:#25D366;color:#fff;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href="viber://chat?number=9779841092416" target="_blank" class="qc-btn" style="background:#7360F2;color:#fff;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M11.4 0C6.37.02 2.19 2.38.6 6.3c-.87 2.15-.96 4.56-.96 6.79 0 2.1.06 4.37.83 6.37.93 2.43 3.07 4.13 5.57 4.75v2.62c0 .25.16.47.39.55.23.08.49.02.66-.16l2.62-2.83c.52.03 1.04.06 1.56.06 5.85-.01 10.23-2.8 11.18-8.78.17-1.08.25-2.18.25-3.27C22.7 5.15 17.8-.02 11.4 0zm5.45 15.67c-.24.67-.97 1.23-1.72 1.36-.46.08-.94.08-1.39-.07-.26-.09-.61-.2-1.05-.41-3.61-1.59-5.97-5.19-6.15-5.44-.18-.25-1.5-2-.87-3.85.37-1.1 1.36-1.66 1.77-1.76.37-.09.74-.03.99.16.27.21.86 1.04 1.11 1.44.26.4.35.74.24 1.03-.11.29-.43.64-.66.9-.11.14-.24.27-.22.42.02.13.08.3.17.44.35.56.9 1.22 1.53 1.72.76.62 1.6 1.05 2.05 1.21.19.07.37.06.51-.04.2-.13.46-.49.65-.74.18-.24.38-.27.61-.17.22.09 1.42.67 1.66.79.25.13.42.2.48.3.06.1.06.6-.17 1.31z"/></svg>
+            Viber
+          </a>
+        </div>
+        <div style="margin-top:28px;padding:18px 20px;background:var(--cream);border-radius:12px;border:1px solid rgba(39,155,72,.2);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Visit Our Office</div>
+          <div style="font-size:14px;line-height:1.7;opacity:.75;">Dhunibesi-06, Chalise<br>Dhading, Nepal</div>
+          <a href="https://www.google.com/maps?q=27.729007,85.136822" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:600;color:var(--green);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Open in Google Maps →
+          </a>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="form-card">
+          <div id="formWrap">
+            <div class="form-row">
+              <div class="field"><label>First Name</label><input type="text" placeholder="John"/></div>
+              <div class="field"><label>Last Name</label><input type="text" placeholder="Smith"/></div>
+            </div>
+            <div class="field"><label>Email Address</label><input type="email" placeholder="john@company.com"/></div>
+            <div class="field"><label>Company</label><input type="text" placeholder="Your company name"/></div>
+            <div class="field">
+              <label>Service Needed</label>
+              <select>
+                <option value="">Select a service…</option>
+                <option>Digital Marketing</option>
+                <option>Branding</option>
+                <option>Social Media Management</option>
+                <option>Content Creation</option>
+                <option>Offshore Digital Services</option>
+                <option>Multiple / Not Sure</option>
+              </select>
+            </div>
+            <div class="field"><label>Message</label><textarea placeholder="Tell us about your project and goals…"></textarea></div>
+            <button class="submit-btn" onclick="submitForm()">Send Message →</button>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <div class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div style="font-size:18px;font-weight:700;margin-bottom:8px;">Message Sent!</div>
+            <div style="font-size:14px;opacity:.6;">We'll get back to you within 24 hours.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="logo-name" style="color:rgba(255,255,242,.85);">Apex<span style="color:#6EE58A;">onix</span></div>
+      <div class="foot-copy" style="margin-top:6px;">© 2025 Apexonix. All rights reserved.</div>
+    </div>
+    <div class="foot-links">
+      <a href="#services">Services</a>
+      <a href="#markets">Markets</a>
+      <a href="#social">Connect</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* NAV scroll */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20);
+});
+
+/* Scroll reveal */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:.12});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.stagger').forEach(el=>obs.observe(el));
+
+/* Mobile menu */
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+/* Contact form */
+function submitForm(){
+  const w=document.getElementById('formWrap');
+  const s=document.getElementById('formSuccess');
+  w.style.opacity='0';
+  w.style.transition='opacity .3s';
+  setTimeout(()=>{w.style.display='none';s.style.display='block';},300);
+}
+</script>
 </body>
 </html>
