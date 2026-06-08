@@ -502,15 +502,16 @@ footer{background:#07100A;padding:48px 5% 32px;}
       <div class="reveal-right">
         <div class="form-card">
           <div id="formWrap">
+            <form id="contactForm" action="https://formspree.io/f/xwvjolod" method="POST">
             <div class="f-row">
-              <div class="field"><label>First Name</label><input type="text" placeholder="John"/></div>
-              <div class="field"><label>Last Name</label><input type="text" placeholder="Smith"/></div>
+              <div class="field"><label>First Name</label><input type="text" name="firstName" placeholder="John" required/></div>
+              <div class="field"><label>Last Name</label><input type="text" name="lastName" placeholder="Smith" required/></div>
             </div>
-            <div class="field"><label>Email Address</label><input type="email" placeholder="john@company.com"/></div>
-            <div class="field"><label>Company</label><input type="text" placeholder="Your company name"/></div>
+            <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="john@company.com" required/></div>
+            <div class="field"><label>Company</label><input type="text" name="company" placeholder="Your company name"/></div>
             <div class="field">
               <label>Service Needed</label>
-              <select>
+              <select name="service">
                 <option value="">Select a service…</option>
                 <option>Digital Marketing</option>
                 <option>Branding</option>
@@ -520,8 +521,9 @@ footer{background:#07100A;padding:48px 5% 32px;}
                 <option>Multiple / Not Sure</option>
               </select>
             </div>
-            <div class="field"><label>Message</label><textarea placeholder="Tell us about your project and goals…"></textarea></div>
-            <button class="submit-btn" onclick="submitForm()">Send Message →</button>
+            <div class="field"><label>Message</label><textarea name="message" placeholder="Tell us about your project and goals…" required></textarea></div>
+            <button type="submit" class="submit-btn">Send Message →</button>
+            </form>
           </div>
           <div class="form-success" id="formSuccess">
             <div class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -581,11 +583,35 @@ const obs=new IntersectionObserver(e=>{
 },{threshold:.1});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.stagger').forEach(el=>obs.observe(el));
 function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open');}
-function submitForm(){
-  const w=document.getElementById('formWrap'),s=document.getElementById('formSuccess');
-  w.style.opacity='0';w.style.transition='opacity .3s';
-  setTimeout(()=>{w.style.display='none';s.style.display='block';},300);
-}
+
+// Formspree AJAX submission
+document.getElementById('contactForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=this.querySelector('.submit-btn');
+  btn.textContent='Sending…';
+  btn.disabled=true;
+  try{
+    const res=await fetch('https://formspree.io/f/xwvjolod',{
+      method:'POST',
+      body:new FormData(this),
+      headers:{Accept:'application/json'}
+    });
+    if(res.ok){
+      document.getElementById('formWrap').style.opacity='0';
+      document.getElementById('formWrap').style.transition='opacity .3s';
+      setTimeout(()=>{
+        document.getElementById('formWrap').style.display='none';
+        document.getElementById('formSuccess').style.display='block';
+      },300);
+    } else {
+      btn.textContent='Failed — Try Again';
+      btn.disabled=false;
+    }
+  } catch(err){
+    btn.textContent='Failed — Try Again';
+    btn.disabled=false;
+  }
+});
 </script>
 </body>
 </html>
