@@ -4,8 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Apexonix — Digital Agency</title>
-<link rel="icon" href="https://raw.githubusercontent.com/apexonixdigital/apexonix-website/main/Favicon.png" type="image/png"/>
-<link rel="shortcut icon" href="https://raw.githubusercontent.com/apexonixdigital/apexonix-website/main/Favicon.png"/>
+<link rel="icon" type="image/png" href="Favicon.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -22,81 +21,77 @@ html{scroll-behavior:smooth;}
 body{background:var(--cream);color:var(--forest);font-family:var(--f);overflow-x:hidden;}
 a{text-decoration:none;color:inherit;}
 
-/* ── SCROLL ANIMATIONS ── */
+/* ANIMATIONS */
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.visible{opacity:1;transform:none;}
 .reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease;}
 .reveal-left.visible{opacity:1;transform:none;}
 .reveal-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease;}
 .reveal-right.visible{opacity:1;transform:none;}
-.stagger > *{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
-.stagger.visible > *:nth-child(1){opacity:1;transform:none;transition-delay:.05s;}
-.stagger.visible > *:nth-child(2){opacity:1;transform:none;transition-delay:.15s;}
-.stagger.visible > *:nth-child(3){opacity:1;transform:none;transition-delay:.25s;}
-.stagger.visible > *:nth-child(4){opacity:1;transform:none;transition-delay:.35s;}
-.stagger.visible > *:nth-child(5){opacity:1;transform:none;transition-delay:.45s;}
+.stagger>*{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.stagger.visible>*:nth-child(1){opacity:1;transform:none;transition-delay:.05s;}
+.stagger.visible>*:nth-child(2){opacity:1;transform:none;transition-delay:.15s;}
+.stagger.visible>*:nth-child(3){opacity:1;transform:none;transition-delay:.25s;}
+.stagger.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.35s;}
+.stagger.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.45s;}
+.stagger.visible>*:nth-child(6){opacity:1;transform:none;transition-delay:.55s;}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 6%;transition:background .3s,box-shadow .3s;}
-nav.scrolled{background:rgba(255,255,242,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(13,31,19,.07);}
-.nav-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px;}
-.logo{display:flex;align-items:center;gap:10px;}
-.logo-img{width:40px;height:40px;border-radius:8px;background:var(--silver);border:1.5px dashed var(--green);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--green);font-weight:700;text-align:center;line-height:1.3;}
-.logo-name{font-size:21px;font-weight:800;letter-spacing:-.5px;}
-.logo-name span{color:var(--green);}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 5%;transition:background .3s,box-shadow .3s;}
+nav.scrolled{background:rgba(255,255,242,.97);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(13,31,19,.08);}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:80px;}
+.nav-logo img{height:52px;width:auto;display:block;}
 .nav-links{display:flex;align-items:center;gap:30px;}
 .nav-links a{font-size:14px;font-weight:500;opacity:.65;transition:opacity .2s;}
 .nav-links a:hover{opacity:1;}
-.nav-cta{background:var(--red);color:var(--white)!important;opacity:1!important;padding:9px 22px;border-radius:6px;font-weight:600!important;transition:transform .15s,opacity .15s!important;}
-.nav-cta:hover{transform:translateY(-1px);opacity:.9!important;}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-.burger span{width:22px;height:2px;background:var(--forest);border-radius:2px;transition:all .3s;}
-.mobile-menu{display:none;position:fixed;inset:0;background:var(--cream);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
-.mobile-menu.open{display:flex;}
-.mobile-menu a{font-size:22px;font-weight:600;}
+.nav-cta{background:var(--red);color:var(--white)!important;opacity:1!important;padding:10px 24px;border-radius:7px;font-weight:700!important;transition:transform .15s,box-shadow .15s!important;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,49,49,.25);opacity:1!important;}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.burger span{width:24px;height:2px;background:var(--forest);border-radius:2px;transition:all .3s;}
+.mob-menu{display:none;position:fixed;inset:0;background:var(--cream);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-size:20px;font-weight:600;}
 
-/* ── HERO ── */
-.hero{min-height:100vh;display:flex;align-items:center;padding:0 6%;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(39,155,72,.07) 0%,transparent 70%);pointer-events:none;}
-.hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:380px;height:380px;background:radial-gradient(circle,rgba(255,49,49,.05) 0%,transparent 70%);pointer-events:none;}
-.hero-inner{max-width:1160px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:0 5%;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(39,155,72,.07),transparent 70%);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:380px;height:380px;background:radial-gradient(circle,rgba(255,49,49,.05),transparent 70%);pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 .hero-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(39,155,72,.3);border-radius:30px;padding:6px 16px;font-size:12px;font-weight:600;letter-spacing:.5px;margin-bottom:28px;color:var(--green);}
 .pulse{width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink 2s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.3;transform:scale(.8);}}
-.hero h1{font-size:58px;font-weight:900;line-height:1.04;letter-spacing:-2px;margin-bottom:22px;}
+.hero h1{font-size:56px;font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:22px;}
 .hero h1 em{font-style:normal;color:var(--green);}
-.hero p{font-size:18px;line-height:1.7;opacity:.65;max-width:460px;margin-bottom:40px;}
+.hero p{font-size:17px;line-height:1.7;opacity:.65;max-width:460px;margin-bottom:40px;}
 .btn-row{display:flex;gap:14px;flex-wrap:wrap;}
 .btn-red{background:var(--red);color:var(--white);padding:14px 30px;border-radius:7px;font-size:15px;font-weight:700;transition:transform .15s,box-shadow .15s;display:inline-block;}
 .btn-red:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,49,49,.25);}
 .btn-outline{border:1.5px solid rgba(13,31,19,.25);color:var(--forest);padding:14px 30px;border-radius:7px;font-size:15px;font-weight:600;transition:border-color .2s,background .2s;display:inline-block;}
 .btn-outline:hover{border-color:var(--forest);background:rgba(13,31,19,.04);}
-.hero-visual{position:relative;}
 .floating-card{background:var(--white);border:1px solid rgba(13,31,19,.08);border-radius:16px;padding:28px;animation:float 5s ease-in-out infinite;}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
-.fc-head{display:flex;align-items:center;gap:12px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--silver);}
+.fc-head{display:flex;align-items:center;gap:8px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--silver);}
 .fc-dot{width:10px;height:10px;border-radius:50%;}
 .kpi-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:18px;}
 .kpi{background:var(--cream);border-radius:10px;padding:14px 10px;text-align:center;}
 .kpi-n{font-size:24px;font-weight:800;color:var(--green);}
 .kpi-l{font-size:11px;opacity:.55;margin-top:2px;font-weight:500;}
-.badge-row{display:flex;flex-wrap:wrap;gap:7px;}
-.badge{background:var(--cream);border:1px solid rgba(39,155,72,.2);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600;}
+.badge-row{display:flex;flex-wrap:wrap;gap:8px;}
+.badge{background:var(--cream);border:1px solid rgba(39,155,72,.2);border-radius:20px;padding:5px 14px;font-size:18px;}
 
-/* ── SECTION SHELL ── */
-.sec{padding:100px 6%;}
-.sec-inner{max-width:1160px;margin:0 auto;}
+/* SECTION SHELL */
+.sec{padding:100px 5%;}
+.sec-inner{max-width:1200px;margin:0 auto;}
 .sec-tag{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-bottom:12px;}
-.sec-h{font-size:42px;font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:16px;}
-.sec-p{font-size:17px;opacity:.62;line-height:1.65;max-width:540px;}
+.sec-h{font-size:40px;font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:16px;}
+.sec-p{font-size:16px;opacity:.62;line-height:1.65;max-width:540px;}
 .divider{width:48px;height:3px;background:var(--green);border-radius:2px;margin:18px 0 48px;}
 
-/* ── SERVICES ── */
+/* SERVICES */
 .services{background:var(--forest);}
 .services .sec-tag{color:#6EE58A;}
 .services .sec-h{color:var(--white);}
 .services .sec-p{color:rgba(255,255,242,.6);}
-.services .divider{background:var(--green);}
 .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:rgba(255,255,242,.06);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,242,.06);}
 .svc-card{background:var(--forest);padding:36px 30px;transition:background .25s;position:relative;overflow:hidden;}
 .svc-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green);transform:scaleY(0);transform-origin:bottom;transition:transform .35s ease;}
@@ -107,80 +102,136 @@ nav.scrolled{background:rgba(255,255,242,.96);backdrop-filter:blur(12px);box-sha
 .svc-title{font-size:17px;font-weight:700;color:var(--white);margin-bottom:10px;}
 .svc-desc{font-size:13.5px;color:rgba(255,255,242,.55);line-height:1.65;}
 
-/* ── WHY US ── */
-.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;margin-top:0;}
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;}
 .why-card{border:1px solid rgba(13,31,19,.07);border-radius:14px;padding:28px 24px;transition:border-color .25s,transform .25s;}
 .why-card:hover{border-color:var(--green);transform:translateY(-3px);}
-.why-n{font-size:13px;font-weight:700;color:var(--green);letter-spacing:1px;margin-bottom:10px;}
+.why-n{font-size:12px;font-weight:700;color:var(--green);letter-spacing:1px;margin-bottom:10px;}
 .why-t{font-size:16px;font-weight:700;margin-bottom:8px;}
 .why-d{font-size:13.5px;opacity:.6;line-height:1.6;}
 
-/* ── MARKETS ── */
+/* MARKETS */
 .markets{background:var(--silver);}
 .mkt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
 .mkt-card{background:var(--cream);border-radius:14px;padding:30px 24px;text-align:center;border:1px solid rgba(13,31,19,.06);transition:border-color .25s,transform .25s;}
 .mkt-card:hover{border-color:var(--green);transform:translateY(-3px);}
-.mkt-flag{font-size:40px;margin-bottom:14px;}
+.mkt-flag{font-size:44px;margin-bottom:14px;}
 .mkt-name{font-size:17px;font-weight:700;margin-bottom:6px;}
 .mkt-desc{font-size:13px;opacity:.58;line-height:1.55;}
 
-/* ── STATS BAND ── */
-.band{background:var(--green);padding:60px 6%;}
-.band-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+/* STATS BAND */
+.band{background:var(--green);padding:60px 5%;}
+.band-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
 .band-item{text-align:center;}
 .band-n{font-size:46px;font-weight:900;color:var(--white);line-height:1;}
 .band-l{font-size:13px;color:rgba(255,255,255,.78);margin-top:6px;font-weight:500;}
 
-/* ── SOCIAL ── */
+/* CASE STUDIES */
+.case-studies{background:var(--forest);}
+.case-studies .sec-tag{color:#6EE58A;}
+.case-studies .sec-h{color:var(--white);}
+.case-studies .sec-p{color:rgba(255,255,242,.6);}
+.cs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px;}
+.cs-card{background:rgba(255,255,242,.04);border:1px solid rgba(255,255,242,.1);border-radius:16px;overflow:hidden;transition:border-color .25s;}
+.cs-card:hover{border-color:var(--green);}
+.cs-top{padding:28px 28px 0;}
+.cs-industry{display:inline-block;background:rgba(39,155,72,.15);color:#6EE58A;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:16px;}
+.cs-title{font-size:20px;font-weight:800;color:var(--white);margin-bottom:20px;line-height:1.3;}
+.cs-block{padding:16px 28px;border-top:1px solid rgba(255,255,242,.06);}
+.cs-block-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:6px;}
+.cs-block-text{font-size:13.5px;color:rgba(255,255,242,.6);line-height:1.6;}
+.cs-kpis{display:flex;gap:0;border-top:1px solid rgba(255,255,242,.06);}
+.cs-kpi{flex:1;padding:18px 20px;text-align:center;border-right:1px solid rgba(255,255,242,.06);}
+.cs-kpi:last-child{border-right:none;}
+.cs-kpi-n{font-size:24px;font-weight:900;color:#6EE58A;}
+.cs-kpi-l{font-size:11px;color:rgba(255,255,242,.5);margin-top:3px;}
+
+/* ARTICLES */
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;}
+.article-card{background:var(--white);border:1px solid rgba(13,31,19,.07);border-radius:16px;overflow:hidden;transition:transform .25s,box-shadow .25s;}
+.article-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(13,31,19,.08);}
+.article-thumb{width:100%;height:190px;background:var(--silver);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.article-thumb-inner{width:100%;height:100%;background:linear-gradient(135deg,var(--silver) 0%,#d0d0c8 100%);display:flex;align-items:center;justify-content:center;}
+.article-thumb svg{width:36px;height:36px;stroke:rgba(13,31,19,.2);fill:none;stroke-width:1.5;}
+.article-cat{position:absolute;top:14px;left:14px;background:var(--green);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px;}
+.article-body{padding:24px;}
+.article-meta{font-size:12px;opacity:.45;margin-bottom:10px;font-weight:500;}
+.article-title{font-size:17px;font-weight:700;line-height:1.4;margin-bottom:10px;}
+.article-excerpt{font-size:13.5px;opacity:.6;line-height:1.6;margin-bottom:18px;}
+.read-more{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--green);transition:gap .2s;}
+.read-more:hover{gap:10px;}
+
+/* CLIENT DIRECTORY */
+.clients{background:var(--silver);}
+.clients-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;}
+.client-card{background:var(--cream);border:1px solid rgba(13,31,19,.07);border-radius:12px;padding:24px 20px;text-align:center;transition:border-color .2s,transform .2s;}
+.client-card:hover{border-color:var(--green);transform:translateY(-2px);}
+.client-logo-placeholder{width:56px;height:56px;background:var(--silver);border-radius:10px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.client-name{font-size:14px;font-weight:700;margin-bottom:4px;}
+.client-industry{font-size:11px;opacity:.5;font-weight:500;}
+
+/* SOCIAL */
 .social-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:48px;}
 .soc-btn{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid rgba(13,31,19,.08);border-radius:10px;padding:12px 20px;font-size:14px;font-weight:600;transition:border-color .2s,transform .2s,box-shadow .2s;}
 .soc-btn:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 6px 18px rgba(39,155,72,.1);}
 .soc-ico{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
-/* ── CONTACT ── */
+/* CONTACT */
 .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
-.contact-info h2{font-size:40px;font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:18px;}
-.contact-info p{font-size:16px;opacity:.62;line-height:1.7;margin-bottom:32px;}
-.contact-detail{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:14px;font-weight:500;}
-.contact-detail svg{width:18px;height:18px;stroke:var(--green);fill:none;stroke-width:2;flex-shrink:0;}
-.quick-contact{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;}
+.contact-info h2{font-size:38px;font-weight:800;letter-spacing:-1px;line-height:1.2;margin-bottom:18px;}
+.contact-info p{font-size:15px;opacity:.62;line-height:1.7;margin-bottom:28px;}
+.c-detail{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:14px;font-weight:500;}
+.c-detail svg{width:17px;height:17px;stroke:var(--green);fill:none;stroke-width:2;flex-shrink:0;}
+.qc-row{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;}
 .qc-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;transition:opacity .2s,transform .15s;}
 .qc-btn:hover{opacity:.9;transform:translateY(-1px);}
+.office-box{margin-top:26px;padding:18px 20px;background:var(--cream);border-radius:12px;border:1px solid rgba(39,155,72,.2);}
+.office-box-tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.office-box p{font-size:14px;line-height:1.7;opacity:.72;}
+.office-box a{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:13px;font-weight:600;color:var(--green);}
 .form-card{background:var(--white);border:1px solid rgba(13,31,19,.08);border-radius:18px;padding:36px;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .field{margin-bottom:18px;}
-.field label{display:block;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;opacity:.55;margin-bottom:7px;}
+.field label{display:block;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;opacity:.5;margin-bottom:7px;}
 .field input,.field textarea,.field select{width:100%;background:var(--cream);border:1.5px solid rgba(13,31,19,.1);border-radius:8px;padding:12px 14px;font-size:14px;font-family:var(--f);color:var(--forest);transition:border-color .2s,box-shadow .2s;outline:none;resize:none;}
-.field input:focus,.field textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(39,155,72,.1);}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(39,155,72,.1);}
 .field textarea{height:120px;}
 .submit-btn{width:100%;background:var(--red);color:var(--white);border:none;padding:14px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:var(--f);}
 .submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,49,49,.25);}
-.form-success{display:none;text-align:center;padding:20px 0;}
-.form-success .check{width:52px;height:52px;background:rgba(39,155,72,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
-.form-success .check svg{width:26px;height:26px;stroke:var(--green);fill:none;stroke-width:2.5;}
+.form-success{display:none;text-align:center;padding:30px 0;}
+.form-success .chk{width:54px;height:54px;background:rgba(39,155,72,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+.form-success .chk svg{width:26px;height:26px;stroke:var(--green);fill:none;stroke-width:2.5;}
 
-/* ── FOOTER ── */
-footer{background:#07100A;padding:40px 6%;}
-.foot-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-.foot-copy{font-size:13px;color:rgba(255,255,242,.35);}
-.foot-links{display:flex;gap:24px;}
-.foot-links a{font-size:13px;color:rgba(255,255,242,.35);transition:color .2s;}
-.foot-links a:hover{color:rgba(255,255,242,.8);}
+/* FOOTER */
+footer{background:#07100A;padding:48px 5% 32px;}
+.foot-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,242,.07);}
+.foot-logo img{height:52px;width:auto;display:block;margin-bottom:14px;}
+.foot-tagline{font-size:13px;color:rgba(255,255,242,.4);line-height:1.6;max-width:220px;}
+.foot-col h4{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,242,.35);margin-bottom:16px;}
+.foot-col a{display:block;font-size:13px;color:rgba(255,255,242,.5);margin-bottom:10px;transition:color .2s;}
+.foot-col a:hover{color:rgba(255,255,242,.9);}
+.foot-bottom{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-top:28px;flex-wrap:wrap;gap:12px;}
+.foot-copy{font-size:12px;color:rgba(255,255,242,.25);}
+.foot-bottom-links{display:flex;gap:20px;}
+.foot-bottom-links a{font-size:12px;color:rgba(255,255,242,.25);transition:color .2s;}
+.foot-bottom-links a:hover{color:rgba(255,255,242,.6);}
 
-/* ── RESPONSIVE ── */
-@media(max-width:900px){
+/* RESPONSIVE */
+@media(max-width:960px){
   .hero-inner,.contact-wrap{grid-template-columns:1fr;}
   .hero-visual{display:none;}
   .hero h1{font-size:42px;}
   .band-inner{grid-template-columns:1fr 1fr;}
-  .form-row{grid-template-columns:1fr;}
+  .foot-top{grid-template-columns:1fr 1fr;}
+  .f-row{grid-template-columns:1fr;}
 }
 @media(max-width:640px){
   .nav-links{display:none;}
   .burger{display:flex;}
   .hero h1{font-size:34px;letter-spacing:-1px;}
-  .sec-h{font-size:30px;}
+  .sec-h{font-size:28px;}
   .band-n{font-size:34px;}
+  .foot-top{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -189,13 +240,16 @@ footer{background:#07100A;padding:40px 6%;}
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <div class="logo">
-      <img src="https://raw.githubusercontent.com/apexonixdigital/apexonix-website/main/logo.png" alt="Apexonix" style="height:56px;width:auto;display:block;"/>
+    <div class="nav-logo">
+      <img src="logo.png" alt="Apexonix"/>
     </div>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#why">Why Us</a>
       <a href="#markets">Markets</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#articles">Articles</a>
+      <a href="#clients">Clients</a>
       <a href="#contact" class="nav-cta">Get Started</a>
     </div>
     <div class="burger" id="burger" onclick="toggleMenu()">
@@ -205,12 +259,14 @@ footer{background:#07100A;padding:40px 6%;}
 </nav>
 
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
+<div class="mob-menu" id="mobMenu">
   <a href="#services" onclick="toggleMenu()">Services</a>
   <a href="#why" onclick="toggleMenu()">Why Us</a>
   <a href="#markets" onclick="toggleMenu()">Markets</a>
-  <a href="#social" onclick="toggleMenu()">Connect</a>
-  <a href="#contact" onclick="toggleMenu()" style="color:var(--red);font-weight:700;">Get Started →</a>
+  <a href="#case-studies" onclick="toggleMenu()">Case Studies</a>
+  <a href="#articles" onclick="toggleMenu()">Articles</a>
+  <a href="#clients" onclick="toggleMenu()">Clients</a>
+  <a href="#contact" onclick="toggleMenu()" style="color:var(--red);font-weight:800;">Get Started →</a>
 </div>
 
 <!-- HERO -->
@@ -231,7 +287,7 @@ footer{background:#07100A;padding:40px 6%;}
           <div class="fc-dot" style="background:var(--red);"></div>
           <div class="fc-dot" style="background:#F5A623;margin-left:4px;"></div>
           <div class="fc-dot" style="background:var(--green);margin-left:4px;"></div>
-          <span style="font-size:13px;font-weight:600;margin-left:10px;opacity:.5;">Campaign Dashboard</span>
+          <span style="font-size:13px;font-weight:600;margin-left:10px;opacity:.45;">Campaign Dashboard</span>
         </div>
         <div class="kpi-row">
           <div class="kpi"><div class="kpi-n">200+</div><div class="kpi-l">Clients</div></div>
@@ -294,26 +350,10 @@ footer{background:#07100A;padding:40px 6%;}
     <p class="sec-p reveal">Strategic thinking, creative excellence, and data intelligence — combined to deliver outcomes that matter.</p>
     <div class="divider reveal"></div>
     <div class="why-grid stagger">
-      <div class="why-card">
-        <div class="why-n">01</div>
-        <div class="why-t">Global Expertise</div>
-        <div class="why-d">Deep understanding of US, UK, Australian &amp; UAE market dynamics and consumer behaviour.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-n">02</div>
-        <div class="why-t">Full-Service Team</div>
-        <div class="why-d">Strategists, designers, writers, media buyers — one agency, zero outsourcing headaches.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-n">03</div>
-        <div class="why-t">Data-Led Decisions</div>
-        <div class="why-d">Every strategy backed by real analytics, competitive research, and performance benchmarks.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-n">04</div>
-        <div class="why-t">Transparent Reporting</div>
-        <div class="why-d">Clear, honest metrics that reflect your actual business goals — not vanity numbers.</div>
-      </div>
+      <div class="why-card"><div class="why-n">01</div><div class="why-t">Global Expertise</div><div class="why-d">Deep understanding of US, UK, Australian &amp; UAE market dynamics and consumer behaviour.</div></div>
+      <div class="why-card"><div class="why-n">02</div><div class="why-t">Full-Service Team</div><div class="why-d">Strategists, designers, writers, media buyers — one agency, zero outsourcing headaches.</div></div>
+      <div class="why-card"><div class="why-n">03</div><div class="why-t">Data-Led Decisions</div><div class="why-d">Every strategy backed by real analytics, competitive research, and performance benchmarks.</div></div>
+      <div class="why-card"><div class="why-n">04</div><div class="why-t">Transparent Reporting</div><div class="why-d">Clear, honest metrics that reflect your actual business goals — not vanity numbers.</div></div>
     </div>
   </div>
 </section>
@@ -326,26 +366,10 @@ footer{background:#07100A;padding:40px 6%;}
     <p class="sec-p reveal">Local market insight. Global standards of execution.</p>
     <div class="divider reveal"></div>
     <div class="mkt-grid stagger">
-      <div class="mkt-card">
-        <div class="mkt-flag">🇺🇸</div>
-        <div class="mkt-name">United States</div>
-        <div class="mkt-desc">Competitive landscape, high-value audiences, and massive digital ad spend.</div>
-      </div>
-      <div class="mkt-card">
-        <div class="mkt-flag">🇬🇧</div>
-        <div class="mkt-name">United Kingdom</div>
-        <div class="mkt-desc">Sophisticated consumers, strong digital adoption, premium market positioning.</div>
-      </div>
-      <div class="mkt-card">
-        <div class="mkt-flag">🇦🇺</div>
-        <div class="mkt-name">Australia</div>
-        <div class="mkt-desc">Fast-growing digital economy with strong social media engagement rates.</div>
-      </div>
-      <div class="mkt-card">
-        <div class="mkt-flag">🇦🇪</div>
-        <div class="mkt-name">UAE</div>
-        <div class="mkt-desc">One of the highest social media penetration rates in the world — a brand's dream market.</div>
-      </div>
+      <div class="mkt-card"><div class="mkt-flag">🇺🇸</div><div class="mkt-name">United States</div><div class="mkt-desc">Competitive landscape, high-value audiences, and massive digital ad spend.</div></div>
+      <div class="mkt-card"><div class="mkt-flag">🇬🇧</div><div class="mkt-name">United Kingdom</div><div class="mkt-desc">Sophisticated consumers, strong digital adoption, premium market positioning.</div></div>
+      <div class="mkt-card"><div class="mkt-flag">🇦🇺</div><div class="mkt-name">Australia</div><div class="mkt-desc">Fast-growing digital economy with strong social media engagement rates.</div></div>
+      <div class="mkt-card"><div class="mkt-flag">🇦🇪</div><div class="mkt-name">UAE</div><div class="mkt-desc">One of the highest social media penetration rates in the world — a brand's dream market.</div></div>
     </div>
   </div>
 </section>
@@ -360,37 +384,139 @@ footer{background:#07100A;padding:40px 6%;}
   </div>
 </div>
 
+<!-- CASE STUDIES -->
+<section class="sec case-studies" id="case-studies">
+  <div class="sec-inner">
+    <div class="sec-tag reveal">Proof of Work</div>
+    <h2 class="sec-h reveal">Client Success Stories</h2>
+    <p class="sec-p reveal">Real challenges. Real solutions. Real results.</p>
+    <div class="divider reveal"></div>
+    <div class="cs-grid stagger">
+      <div class="cs-card">
+        <div class="cs-top">
+          <div class="cs-industry">E-Commerce · USA</div>
+          <div class="cs-title">Scaling a DTC Brand from $20K to $180K Monthly Revenue</div>
+        </div>
+        <div class="cs-block"><div class="cs-block-label">The Challenge</div><div class="cs-block-text">A US-based skincare brand had strong products but zero digital presence, burning budget on untargeted ads with a 0.8x ROAS.</div></div>
+        <div class="cs-block"><div class="cs-block-label">The Solution</div><div class="cs-block-text">Full funnel rebuild — new brand identity, Meta & Google ad strategy, UGC content pipeline, and email automation sequences.</div></div>
+        <div class="cs-kpis">
+          <div class="cs-kpi"><div class="cs-kpi-n">9x</div><div class="cs-kpi-l">ROAS</div></div>
+          <div class="cs-kpi"><div class="cs-kpi-n">800%</div><div class="cs-kpi-l">Revenue Growth</div></div>
+          <div class="cs-kpi"><div class="cs-kpi-n">4mo</div><div class="cs-kpi-l">Timeline</div></div>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-top">
+          <div class="cs-industry">Real Estate · UAE</div>
+          <div class="cs-title">Generating 400+ Qualified Leads for a Dubai Property Developer</div>
+        </div>
+        <div class="cs-block"><div class="cs-block-label">The Challenge</div><div class="cs-block-text">A Dubai developer needed qualified international buyers for a new off-plan project but struggled to reach high-net-worth audiences.</div></div>
+        <div class="cs-block"><div class="cs-block-label">The Solution</div><div class="cs-block-text">Targeted LinkedIn & Meta campaigns, Arabic/English bilingual content, retargeting funnels, and a dedicated landing page.</div></div>
+        <div class="cs-kpis">
+          <div class="cs-kpi"><div class="cs-kpi-n">400+</div><div class="cs-kpi-l">Leads</div></div>
+          <div class="cs-kpi"><div class="cs-kpi-n">62%</div><div class="cs-kpi-l">Lower CPL</div></div>
+          <div class="cs-kpi"><div class="cs-kpi-n">6wk</div><div class="cs-kpi-l">Timeline</div></div>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-top">
+          <div class="cs-industry">SaaS · UK</div>
+          <div class="cs-title">Growing Organic Traffic 310% for a B2B Software Company</div>
+        </div>
+        <div class="cs-block"><div class="cs-block-label">The Challenge</div><div class="cs-block-text">A UK SaaS startup had a great product but ranked on page 4+ for all target keywords with no content strategy in place.</div></div>
+        <div class="cs-block"><div class="cs-block-label">The Solution</div><div class="cs-block-text">Comprehensive SEO audit, keyword clustering, 24-piece content calendar, technical fixes, and backlink outreach campaign.</div></div>
+        <div class="cs-kpis">
+          <div class="cs-kpi"><div class="cs-kpi-n">310%</div><div class="cs-kpi-l">Traffic Growth</div></div>
+          <div class="cs-kpi"><div class="cs-kpi-n">14</div><div class="cs-kpi-l">Page 1 Keywords</div></div>
+          <div class="cs-kpi"><div class="cs-kpi-n">5mo</div><div class="cs-kpi-l">Timeline</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="sec" id="articles">
+  <div class="sec-inner">
+    <div class="sec-tag reveal">Knowledge Hub</div>
+    <h2 class="sec-h reveal">Latest Articles &amp; Insights</h2>
+    <p class="sec-p reveal">Actionable strategies and industry insights from the Apexonix team.</p>
+    <div class="divider reveal"></div>
+    <div class="articles-grid stagger">
+      <div class="article-card">
+        <div class="article-thumb">
+          <div class="article-thumb-inner"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="article-cat">Digital Marketing</div>
+        </div>
+        <div class="article-body">
+          <div class="article-meta">June 2, 2025 · 6 min read</div>
+          <div class="article-title">How to Build a High-Converting Meta Ads Funnel in 2025</div>
+          <div class="article-excerpt">Meta's algorithm has changed — here's the exact funnel structure we use to consistently hit 5x+ ROAS for e-commerce clients.</div>
+          <a href="#" class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+      <div class="article-card">
+        <div class="article-thumb">
+          <div class="article-thumb-inner"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="article-cat">Branding</div>
+        </div>
+        <div class="article-body">
+          <div class="article-meta">May 20, 2025 · 5 min read</div>
+          <div class="article-title">Why Your Brand Identity Is Costing You Clients (And How to Fix It)</div>
+          <div class="article-excerpt">First impressions happen in 0.05 seconds. We break down the 5 brand elements that make or break trust with international clients.</div>
+          <a href="#" class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+      <div class="article-card">
+        <div class="article-thumb">
+          <div class="article-thumb-inner"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="article-cat">Offshore Services</div>
+        </div>
+        <div class="article-body">
+          <div class="article-meta">May 8, 2025 · 7 min read</div>
+          <div class="article-title">The Real Cost Advantage of Offshore Digital Teams for US &amp; UK Companies</div>
+          <div class="article-excerpt">We run the numbers on what businesses in the West actually save — and what they gain — by working with a dedicated offshore digital team.</div>
+          <a href="#" class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT DIRECTORY -->
+<section class="sec clients" id="clients">
+  <div class="sec-inner">
+    <div class="sec-tag reveal">Who We Work With</div>
+    <h2 class="sec-h reveal">Our Client Directory</h2>
+    <p class="sec-p reveal">Businesses of all sizes trust Apexonix to grow their digital presence.</p>
+    <div class="divider reveal"></div>
+    <div class="clients-grid stagger">
+      <div class="client-card"><div class="client-logo-placeholder">🛍️</div><div class="client-name">RetailBrand Co.</div><div class="client-industry">E-Commerce · USA</div></div>
+      <div class="client-card"><div class="client-logo-placeholder">🏠</div><div class="client-name">PrimeProperties</div><div class="client-industry">Real Estate · UAE</div></div>
+      <div class="client-card"><div class="client-logo-placeholder">💊</div><div class="client-name">WellnessFirst</div><div class="client-industry">Health · UK</div></div>
+      <div class="client-card"><div class="client-logo-placeholder">💻</div><div class="client-name">TechFlow SaaS</div><div class="client-industry">Software · UK</div></div>
+      <div class="client-card"><div class="client-logo-placeholder">🍽️</div><div class="client-name">TasteHouse</div><div class="client-industry">Food & Bev · AU</div></div>
+      <div class="client-card"><div class="client-logo-placeholder">🎓</div><div class="client-name">EduPath</div><div class="client-industry">Education · USA</div></div>
+      <div class="client-card"><div class="client-logo-placeholder">✈️</div><div class="client-name">Roam Travel</div><div class="client-industry">Tourism · UAE</div></div>
+      <div class="client-card"><div class="client-logo-placeholder">🏋️</div><div class="client-name">FitLife Studio</div><div class="client-industry">Fitness · AU</div></div>
+    </div>
+    <p class="reveal" style="text-align:center;margin-top:36px;font-size:13px;opacity:.45;">* Client names are representative. Replace with your actual clients and their logos.</p>
+  </div>
+</section>
+
 <!-- SOCIAL -->
 <section class="sec" id="social" style="text-align:center;">
   <div class="sec-inner">
     <div class="sec-tag reveal">Follow Us</div>
-    <h2 class="sec-h reveal" style="max-width:500px;margin:0 auto 12px;">Stay Connected With Apexonix</h2>
+    <h2 class="sec-h reveal" style="max-width:480px;margin:0 auto 12px;">Stay Connected With Apexonix</h2>
     <p class="sec-p reveal" style="margin:0 auto;">Join our growing community across all platforms.</p>
     <div class="social-grid stagger">
-      <a href="https://www.facebook.com/apexonix" target="_blank" class="soc-btn">
-        <div class="soc-ico" style="background:#1877F2;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
-        Facebook
-      </a>
-      <a href="https://www.instagram.com/apexonix.co/" target="_blank" class="soc-btn">
-        <div class="soc-ico" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></div>
-        Instagram
-      </a>
-      <a href="https://x.com/Apexonixdigital" target="_blank" class="soc-btn">
-        <div class="soc-ico" style="background:#000;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
-        X (Twitter)
-      </a>
-      <a href="https://linkedin.com/company/apexonix" target="_blank" class="soc-btn">
-        <div class="soc-ico" style="background:#0A66C2;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
-        LinkedIn
-      </a>
-      <a href="https://www.tiktok.com/@apexonix" target="_blank" class="soc-btn">
-        <div class="soc-ico" style="background:#000;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.72a4.85 4.85 0 0 1-1.01-.03z"/></svg></div>
-        TikTok
-      </a>
-      <a href="https://www.pinterest.com/apexonix/" target="_blank" class="soc-btn">
-        <div class="soc-ico" style="background:#E60023;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></div>
-        Pinterest
-      </a>
+      <a href="https://www.facebook.com/apexonix" target="_blank" class="soc-btn"><div class="soc-ico" style="background:#1877F2;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>Facebook</a>
+      <a href="https://www.instagram.com/apexonix.co/" target="_blank" class="soc-btn"><div class="soc-ico" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></div>Instagram</a>
+      <a href="https://x.com/Apexonixdigital" target="_blank" class="soc-btn"><div class="soc-ico" style="background:#000;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>X (Twitter)</a>
+      <a href="https://linkedin.com/company/apexonix" target="_blank" class="soc-btn"><div class="soc-ico" style="background:#0A66C2;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>LinkedIn</a>
+      <a href="https://www.tiktok.com/@apexonix" target="_blank" class="soc-btn"><div class="soc-ico" style="background:#000;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.72a4.85 4.85 0 0 1-1.01-.03z"/></svg></div>TikTok</a>
+      <a href="https://www.pinterest.com/apexonix/" target="_blank" class="soc-btn"><div class="soc-ico" style="background:#E60023;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></div>Pinterest</a>
     </div>
   </div>
 </section>
@@ -404,33 +530,18 @@ footer{background:#07100A;padding:40px 6%;}
         <h2>Let's Build Something Great Together</h2>
         <div class="divider"></div>
         <p>Tell us about your brand and goals. We'll get back to you within 24 hours with a tailored plan.</p>
-        <div class="contact-detail">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          2026apexonix@gmail.com
+        <div class="c-detail"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>2026apexonix@gmail.com</div>
+        <div class="c-detail"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+977 9841092416</div>
+        <div class="c-detail"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Dhunibesi-06, Chalise, Dhading, Nepal</div>
+        <div class="qc-row">
+          <a href="https://wa.me/9779841092416" target="_blank" class="qc-btn" style="background:#25D366;color:#fff;"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp</a>
+          <a href="viber://chat?number=9779841092416" target="_blank" class="qc-btn" style="background:#7360F2;color:#fff;"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M11.4 0C6.37.02 2.19 2.38.6 6.3c-.87 2.15-.96 4.56-.96 6.79 0 2.1.06 4.37.83 6.37.93 2.43 3.07 4.13 5.57 4.75v2.62c0 .25.16.47.39.55.23.08.49.02.66-.16l2.62-2.83c.52.03 1.04.06 1.56.06 5.85-.01 10.23-2.8 11.18-8.78.17-1.08.25-2.18.25-3.27C22.7 5.15 17.8-.02 11.4 0zm5.45 15.67c-.24.67-.97 1.23-1.72 1.36-.46.08-.94.08-1.39-.07-.26-.09-.61-.2-1.05-.41-3.61-1.59-5.97-5.19-6.15-5.44-.18-.25-1.5-2-.87-3.85.37-1.1 1.36-1.66 1.77-1.76.37-.09.74-.03.99.16.27.21.86 1.04 1.11 1.44.26.4.35.74.24 1.03-.11.29-.43.64-.66.9-.11.14-.24.27-.22.42.02.13.08.3.17.44.35.56.9 1.22 1.53 1.72.76.62 1.6 1.05 2.05 1.21.19.07.37.06.51-.04.2-.13.46-.49.65-.74.18-.24.38-.27.61-.17.22.09 1.42.67 1.66.79.25.13.42.2.48.3.06.1.06.6-.17 1.31z"/></svg>Viber</a>
         </div>
-        <div class="contact-detail">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +977 9841092416
-        </div>
-        <div class="contact-detail">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Dhunibesi-06, Chalise, Dhading, Nepal
-        </div>
-        <div class="quick-contact">
-          <a href="https://wa.me/9779841092416" target="_blank" class="qc-btn" style="background:#25D366;color:#fff;">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-            WhatsApp
-          </a>
-          <a href="viber://chat?number=9779841092416" target="_blank" class="qc-btn" style="background:#7360F2;color:#fff;">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M11.4 0C6.37.02 2.19 2.38.6 6.3c-.87 2.15-.96 4.56-.96 6.79 0 2.1.06 4.37.83 6.37.93 2.43 3.07 4.13 5.57 4.75v2.62c0 .25.16.47.39.55.23.08.49.02.66-.16l2.62-2.83c.52.03 1.04.06 1.56.06 5.85-.01 10.23-2.8 11.18-8.78.17-1.08.25-2.18.25-3.27C22.7 5.15 17.8-.02 11.4 0zm5.45 15.67c-.24.67-.97 1.23-1.72 1.36-.46.08-.94.08-1.39-.07-.26-.09-.61-.2-1.05-.41-3.61-1.59-5.97-5.19-6.15-5.44-.18-.25-1.5-2-.87-3.85.37-1.1 1.36-1.66 1.77-1.76.37-.09.74-.03.99.16.27.21.86 1.04 1.11 1.44.26.4.35.74.24 1.03-.11.29-.43.64-.66.9-.11.14-.24.27-.22.42.02.13.08.3.17.44.35.56.9 1.22 1.53 1.72.76.62 1.6 1.05 2.05 1.21.19.07.37.06.51-.04.2-.13.46-.49.65-.74.18-.24.38-.27.61-.17.22.09 1.42.67 1.66.79.25.13.42.2.48.3.06.1.06.6-.17 1.31z"/></svg>
-            Viber
-          </a>
-        </div>
-        <div style="margin-top:28px;padding:18px 20px;background:var(--cream);border-radius:12px;border:1px solid rgba(39,155,72,.2);">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Visit Our Office</div>
-          <div style="font-size:14px;line-height:1.7;opacity:.75;">Dhunibesi-06, Chalise<br>Dhading, Nepal</div>
-          <a href="https://www.google.com/maps?q=27.729007,85.136822" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:600;color:var(--green);">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="office-box">
+          <div class="office-box-tag">Visit Our Office</div>
+          <p>Dhunibesi-06, Chalise<br>Dhading, Bagmati Province, Nepal</p>
+          <a href="https://www.google.com/maps?q=27.729007,85.136822" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Open in Google Maps →
           </a>
         </div>
@@ -438,7 +549,7 @@ footer{background:#07100A;padding:40px 6%;}
       <div class="reveal-right">
         <div class="form-card">
           <div id="formWrap">
-            <div class="form-row">
+            <div class="f-row">
               <div class="field"><label>First Name</label><input type="text" placeholder="John"/></div>
               <div class="field"><label>Last Name</label><input type="text" placeholder="Smith"/></div>
             </div>
@@ -460,7 +571,7 @@ footer{background:#07100A;padding:40px 6%;}
             <button class="submit-btn" onclick="submitForm()">Send Message →</button>
           </div>
           <div class="form-success" id="formSuccess">
-            <div class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
             <div style="font-size:18px;font-weight:700;margin-bottom:8px;">Message Sent!</div>
             <div style="font-size:14px;opacity:.6;">We'll get back to you within 24 hours.</div>
           </div>
@@ -472,43 +583,54 @@ footer{background:#07100A;padding:40px 6%;}
 
 <!-- FOOTER -->
 <footer>
-  <div class="foot-inner">
-    <div>
-      <img src="https://raw.githubusercontent.com/apexonixdigital/apexonix-website/main/logo.png" alt="Apexonix" style="height:60px;width:auto;display:block;"/>
-      <div class="foot-copy" style="margin-top:10px;">© 2025 Apexonix. All rights reserved.</div>
+  <div class="foot-top">
+    <div class="foot-logo">
+      <img src="logo.png" alt="Apexonix"/>
+      <div class="foot-tagline">A full-service digital agency growing brands across the US, UK, Australia &amp; UAE.</div>
     </div>
-    <div class="foot-links">
-      <a href="#services">Services</a>
-      <a href="#markets">Markets</a>
-      <a href="#social">Connect</a>
-      <a href="#contact">Contact</a>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <a href="#services">Digital Marketing</a>
+      <a href="#services">Branding</a>
+      <a href="#services">Social Media</a>
+      <a href="#services">Content Creation</a>
+      <a href="#services">Offshore Services</a>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <a href="#why">Why Us</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#articles">Articles</a>
+      <a href="#clients">Clients</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a href="mailto:2026apexonix@gmail.com">2026apexonix@gmail.com</a>
+      <a href="https://wa.me/9779841092416">+977 9841092416</a>
+      <a href="https://www.google.com/maps?q=27.729007,85.136822" target="_blank">Dhading, Nepal</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2025 Apexonix. All rights reserved.</div>
+    <div class="foot-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
     </div>
   </div>
 </footer>
 
 <script>
-/* NAV scroll */
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20);
 });
-
-/* Scroll reveal */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:.12});
+const obs=new IntersectionObserver(e=>{
+  e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible');});
+},{threshold:.1});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.stagger').forEach(el=>obs.observe(el));
-
-/* Mobile menu */
-function toggleMenu(){
-  document.getElementById('mobileMenu').classList.toggle('open');
-}
-
-/* Contact form */
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open');}
 function submitForm(){
-  const w=document.getElementById('formWrap');
-  const s=document.getElementById('formSuccess');
-  w.style.opacity='0';
-  w.style.transition='opacity .3s';
+  const w=document.getElementById('formWrap'),s=document.getElementById('formSuccess');
+  w.style.opacity='0';w.style.transition='opacity .3s';
   setTimeout(()=>{w.style.display='none';s.style.display='block';},300);
 }
 </script>
