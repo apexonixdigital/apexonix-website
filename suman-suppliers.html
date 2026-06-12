@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>सुमन सप्लायर्स — Apexonix</title>
+<link rel="icon" type="image/png" href="Favicon.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--cream:#FFFFF2;--forest:#0D1F13;--red:#FF3131;--green:#279B48;--silver:#E8E8E1;--white:#FFFFFF;--f:'Inter',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--forest);font-family:var(--f);overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,242,.97);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(13,31,19,.08);padding:0 5%;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px;}
+.nav-logo img{height:32px;width:auto;display:block;}
+.nav-back{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--forest);opacity:.7;transition:opacity .2s;}
+.nav-back:hover{opacity:1;}
+.nav-back svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;}
+.hero-img{width:100%;height:520px;object-fit:cover;object-position:center;display:block;margin-top:72px;}
+.article-wrap{max-width:820px;margin:0 auto;padding:56px 5% 80px;}
+.article-meta-row{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+.art-cat{background:var(--green);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;}
+.art-date{font-size:13px;opacity:.5;font-weight:500;}
+.art-read{font-size:13px;opacity:.5;font-weight:500;}
+h1{font-size:38px;font-weight:900;line-height:1.15;letter-spacing:-1px;margin-bottom:16px;}
+.art-sub{font-size:18px;line-height:1.7;opacity:.7;margin-bottom:36px;border-left:3px solid var(--green);padding-left:18px;}
+.art-body{font-size:16px;line-height:1.8;opacity:.82;}
+.art-body p{margin-bottom:20px;}
+.art-body h2{font-size:22px;font-weight:800;margin:36px 0 14px;color:var(--forest);}
+.art-body h3{font-size:18px;font-weight:700;margin:28px 0 10px;color:var(--green);}
+.art-body ul{padding-left:20px;margin-bottom:20px;}
+.art-body ul li{margin-bottom:8px;}
+.art-body strong{font-weight:700;color:var(--forest);}
+.img-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0;}
+.img-grid-2 img{width:100%;height:260px;object-fit:cover;border-radius:12px;}
+.img-single{margin:32px 0;}
+.img-single img{width:100%;height:380px;object-fit:cover;border-radius:12px;}
+.img-caption{font-size:12px;opacity:.45;text-align:center;margin-top:8px;}
+.info-box{background:var(--silver);border-radius:14px;padding:28px 32px;margin:36px 0;}
+.info-box h3{font-size:16px;font-weight:800;margin-bottom:16px;color:var(--forest);}
+.info-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:14px;}
+.info-row svg{width:16px;height:16px;stroke:var(--green);fill:none;stroke-width:2;flex-shrink:0;margin-top:2px;}
+.hours-box{background:var(--forest);border-radius:12px;padding:20px 24px;margin:24px 0;display:flex;align-items:center;gap:16px;}
+.hours-box svg{width:28px;height:28px;stroke:#6EE58A;fill:none;stroke-width:1.8;flex-shrink:0;}
+.hours-box div{color:rgba(255,255,242,.85);font-size:14px;line-height:1.6;}
+.hours-box strong{color:#fff;font-size:15px;}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:36px 0 0;}
+.tag{background:var(--silver);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;opacity:.7;}
+.published-by{margin-top:40px;padding:20px 24px;background:var(--forest);border-radius:12px;display:flex;align-items:center;gap:14px;}
+.published-by img{height:28px;width:auto;filter:brightness(0) invert(1);}
+.published-by span{font-size:13px;color:rgba(255,255,242,.65);}
+.published-by strong{color:rgba(255,255,242,.9);}
+.back-btn{display:inline-flex;align-items:center;gap:8px;margin-top:40px;background:var(--green);color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;transition:opacity .2s;}
+.back-btn:hover{opacity:.9;}
+.back-btn svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;}
+@media(max-width:640px){
+  h1{font-size:26px;}
+  .hero-img{height:260px;}
+  .img-grid-2{grid-template-columns:1fr;}
+  .art-sub{font-size:16px;}
+  .art-body{font-size:15px;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><img src="logo.png" alt="Apexonix"/></div>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Home
+    </a>
+  </div>
+</nav>
+
+<img src="Suman1.jpeg" alt="सुमन सप्लायर्स" class="hero-img"/>
+
+<div class="article-wrap">
+  <div class="article-meta-row">
+    <span class="art-cat">Local Business</span>
+    <span class="art-date">जुन २०२५</span>
+    <span class="art-read">· ४ मिनेट पढ्नुहोस्</span>
+  </div>
+
+  <h1>पृथ्वी राजमार्ग कोरिडोरमा डिस्पोजेबल र हाइजिन सामग्री आपूर्ति गर्दै 'सुमन सप्लायर्स'</h1>
+
+  <p class="art-sub">काठमाडौँ प्रवेश गर्ने मुख्य नाका नागढुंगादेखि धादिङको गल्छी र धुनिवेशी क्षेत्रमा तीव्र रूपमा फैलिरहेको होटल, क्याटरिङ र व्यावसायिक प्रतिष्ठानहरूका लागि आवश्यक पर्ने सामग्री अब स्थानीय बजारमै सहजै उपलब्ध हुन थालेको छ।</p>
+
+  <div class="art-body">
+    <p>धादिङको धुनिवेशी नगरपालिका वडा नं. ०६, धार्के बजारमा अवस्थित <strong>सुमन सप्लायर्स</strong> ले समग्र कोरिडोर क्षेत्रमै डिस्पोजेबल, औद्योगिक सरसफाइ र दैनिक उपभोग्य सामग्री आपूर्तिको क्षेत्रमा बलियो पहिचान बनाउँदै लगेको छ।</p>
+    <p>विशेषगरी होटल व्यवसाय, विवाह, व्रतबन्ध, विभिन्न उत्सवका भोजभतेर तथा दैनिक प्रशासनिक प्रयोजनका लागि आवश्यक पर्ने सामग्रीहरू उचित मूल्यमा उपलब्ध गराएर यो सप्लायर्सले स्थानीय बजारको आपूर्ति शृङ्खला (Supply Chain) लाई सहज बनाइदिएको छ।</p>
+
+    <div class="img-grid-2">
+      <div><img src="Suman2.jpeg" alt="सुमन सप्लायर्स उत्पादनहरू"/><div class="img-caption">सुमन सप्लायर्सका उत्पादनहरू</div></div>
+      <div><img src="Suman3.jpeg" alt="सुमन सप्लायर्स स्टोर"/><div class="img-caption">धार्के बजारस्थित स्टोर</div></div>
+    </div>
+
+    <h2>📦 उपलब्ध सामग्रीहरूको सूची</h2>
+    <p>सुमन सप्लायर्सले घर, कार्यालय तथा विभिन्न उत्सव र समारोहहरूमा प्रयोग हुने विभिन्न किसिमका आवश्यक सामग्रीहरू होलसेल तथा खुद्रा मूल्यमा उपलब्ध गराउँदै आएको छ:</p>
+    <ul>
+      <li>विभिन्न प्रकारका पेपर र प्लास्टिकका प्लेटहरू तथा कपहरू</li>
+      <li>विवाह तथा भोजभतेरका लागि विशेष उपयोगी खन्डे थालहरू</li>
+      <li>नेपकिन पेपर, ट्वाइलेट पेपर र सिल्भर फ्वइल</li>
+      <li>मःम र चौमीन प्याक गर्ने विशेष प्याकिङ कन्टेनरहरू</li>
+      <li>विभिन्न साइजका प्लास्टिक ब्याग र प्लास्टिक प्याकिङ साचेटहरू</li>
+      <li>टुथपिक, सौफ र मिस्रीहरू</li>
+      <li>घर तथा आँगन सफा गर्ने कुचो र खरेटोहरू</li>
+      <li>बाथरुम तथा भुइँ सफा गर्ने हार्पिक, फिनाइल र डाइभ्युट एसिड</li>
+      <li>रूम फ्रेसनर र ट्वाइलेटका लागि ओडोनिल</li>
+      <li>भान्छाका लागि धारिला चक्कु र चपिङ बोर्डहरू</li>
+      <li>सामान बाँध्ने डोरी, लुगा सुकाउने डोरी र विभिन्न किसिमका नाइलनका डोरीहरू</li>
+      <li>बच्चाहरूका लागि डायपर र महिलाहरूका लागि गुणस्तरीय स्यानिटरी प्याडहरू</li>
+    </ul>
+
+    <h2>🚚 द्रुत लजिस्टिक र सेवा क्षेत्र</h2>
+    <p>धार्के बजारलाई केन्द्र बनाएर यस प्रतिष्ठानले आसपासका प्रमुख व्यापारिक नाका तथा बजारहरूमा माग अनुसार तत्कालै सामान ढुवानी गर्ने व्यवस्था मिलाएको छ।</p>
+    <ul>
+      <li><strong>मुख्य सेवा क्षेत्र:</strong> धुनिवेशी, थाक्रे, गल्छी र नागढुंगा।</li>
+      <li><strong>थोक आपूर्ति:</strong> बढी परिमाणमा सामान आवश्यक परेको खण्डमा <strong>नेपालभरि नै डेलिभरी</strong> को संस्थागत व्यवस्था मिलाउन सकिने।</li>
+    </ul>
+
+    <div class="hours-box">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div><strong>⏰ सातै दिन व्यावसायिक सेवा</strong><br/>बिहान ६:०० बजेदेखि बेलुका ७:३० बजेसम्म निरन्तर सञ्चालन।<br/>हप्ताको ७ वै दिन खुला — आकस्मिक मागलाई पनि सहजै धान्न सक्षम।</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h3>📌 व्यावसायिक सोधपुछ तथा अर्डरका लागि</h3>
+    <div class="info-row"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span><strong>सुमन सप्लायर्स (Suman Suppliers)</strong></span></div>
+    <div class="info-row"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>धार्के बजार, धुनिवेशी-०६, धादिङ (सिटिजन बैंक अगाडि)</span></div>
+    <div class="info-row"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span><strong>प्रोप्राइटर:</strong> सुमन रेग्मी</span></div>
+    <div class="info-row"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>9869612842</span></div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">#SumanSuppliers</span>
+    <span class="tag">#DharkeBazar</span>
+    <span class="tag">#Dhading</span>
+    <span class="tag">#DisposableSupplies</span>
+    <span class="tag">#HygieneProducts</span>
+    <span class="tag">#Nagdhunga</span>
+    <span class="tag">#Apexonix</span>
+    <span class="tag">#BusinessSpotlight</span>
+  </div>
+
+  <div class="published-by">
+    <img src="logo.png" alt="Apexonix"/>
+    <span>Published by <strong>Apexonix</strong> — Celebrating local businesses that serve Nepal with pride.</span>
+  </div>
+
+  <a href="index.html" class="back-btn">
+    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Home
+  </a>
+</div>
+</body>
+</html>
