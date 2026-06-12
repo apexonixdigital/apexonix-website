@@ -169,8 +169,8 @@ nav.scrolled{background:rgba(255,255,242,.97);backdrop-filter:blur(12px);box-sha
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-top:0;}
 .team-card{background:rgba(255,255,242,.04);border:1px solid rgba(255,255,242,.08);border-radius:18px;overflow:hidden;transition:border-color .25s,transform .25s;}
 .team-card:hover{border-color:var(--green);transform:translateY(-4px);}
-.team-photo{width:100%;height:300px;overflow:hidden;position:relative;}
-.team-photo img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .4s ease;}
+.team-photo{width:100%;aspect-ratio:3/4;overflow:hidden;position:relative;}
+.team-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .4s ease;}
 .team-card:hover .team-photo img{transform:scale(1.04);}
 .team-info{padding:24px 26px;}
 .team-name{font-size:20px;font-weight:800;color:var(--white);margin-bottom:4px;}
@@ -416,38 +416,30 @@ footer{background:#07100A;padding:48px 5% 32px;}
     <div class="articles-grid stagger">
       <div class="article-card">
         <div class="article-thumb">
-          <div class="article-thumb-inner"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-          <div class="article-cat">Digital Marketing</div>
+          <div class="article-thumb-inner">
+            <img src="Kushal1.jpeg" alt="कुशल सप्लायर्स" style="width:100%;height:100%;object-fit:cover;"/>
+          </div>
+          <div class="article-cat">Local Business</div>
         </div>
         <div class="article-body">
-          <div class="article-meta">June 2, 2025 · 6 min read</div>
-          <div class="article-title">How to Build a High-Converting Meta Ads Funnel in 2025</div>
-          <div class="article-excerpt">Meta's algorithm has changed — here's the exact funnel structure we use to consistently hit 5x+ ROAS for e-commerce clients.</div>
-          <a href="#" class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <div class="article-meta">जुन २०२५ · ५ मिनेट पढ्नुहोस्</div>
+          <div class="article-title">११ वर्षको यात्रासँगै धादिङकै सबैभन्दा ठूलो फर्निसिङ हब — कुशल सप्लायर्स</div>
+          <div class="article-excerpt">घर, कार्यालय, होटल वा रिसोर्ट— तपाईँको स्पेसलाई विलासी र आरामदायि बनाउन विगत ११ वर्षदेखि सेवा दिँदै आएको विश्वसनीय नाम।</div>
+          <a href="kushal-suppliers.html" class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </div>
       <div class="article-card">
         <div class="article-thumb">
-          <div class="article-thumb-inner"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-          <div class="article-cat">Branding</div>
+          <div class="article-thumb-inner">
+            <img src="Suman1.jpeg" alt="सुमन सप्लायर्स" style="width:100%;height:100%;object-fit:cover;"/>
+          </div>
+          <div class="article-cat">Local Business</div>
         </div>
         <div class="article-body">
-          <div class="article-meta">May 20, 2025 · 5 min read</div>
-          <div class="article-title">Why Your Brand Identity Is Costing You Clients (And How to Fix It)</div>
-          <div class="article-excerpt">First impressions happen in 0.05 seconds. We break down the 5 brand elements that make or break trust with international clients.</div>
-          <a href="#" class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-      </div>
-      <div class="article-card">
-        <div class="article-thumb">
-          <div class="article-thumb-inner"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-          <div class="article-cat">Offshore Services</div>
-        </div>
-        <div class="article-body">
-          <div class="article-meta">May 8, 2025 · 7 min read</div>
-          <div class="article-title">The Real Cost Advantage of Offshore Digital Teams for US &amp; UK Companies</div>
-          <div class="article-excerpt">We run the numbers on what businesses in the West actually save — and what they gain — by working with a dedicated offshore digital team.</div>
-          <a href="#" class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <div class="article-meta">जुन २०२५ · ४ मिनेट पढ्नुहोस्</div>
+          <div class="article-title">पृथ्वी राजमार्ग कोरिडोरमा डिस्पोजेबल र हाइजिन सामग्री आपूर्ति गर्दै 'सुमन सप्लायर्स'</div>
+          <div class="article-excerpt">नागढुंगादेखि गल्छी र धुनिवेशी क्षेत्रका होटल, क्याटरिङ र व्यावसायिक प्रतिष्ठानका लागि आवश्यक सामग्री अब स्थानीय बजारमै।</div>
+          <a href="suman-suppliers.html" class="read-more">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </div>
     </div>
@@ -507,6 +499,20 @@ footer{background:#07100A;padding:48px 5% 32px;}
     <p class="sec-p reveal">Businesses of all sizes trust Apexonix to grow their digital presence.</p>
     <div class="divider reveal"></div>
     <div class="clients-grid stagger">
+      <div class="client-card">
+        <div class="client-logo-placeholder">
+          <img src="Kushal1.jpeg" alt="Kushal Suppliers" style="width:56px;height:56px;object-fit:cover;border-radius:8px;"/>
+        </div>
+        <div class="client-name">कुशल सप्लायर्स</div>
+        <div class="client-industry">Furniture & Furnishing · Dhading</div>
+      </div>
+      <div class="client-card">
+        <div class="client-logo-placeholder">
+          <img src="Suman1.jpeg" alt="Suman Suppliers" style="width:56px;height:56px;object-fit:cover;border-radius:8px;"/>
+        </div>
+        <div class="client-name">सुमन सप्लायर्स</div>
+        <div class="client-industry">Disposable & Hygiene Supply · Dhading</div>
+      </div>
       <!-- ADD YOUR CLIENTS HERE. Copy the block below for each client:
 
       <div class="client-card">
